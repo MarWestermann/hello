@@ -44,7 +44,10 @@ public class HelloVerticle extends AbstractVerticle {
                 future.complete();
               }
             }),
-        v -> message.reply(response(name, null))
+        v -> {
+          message.reply(response(name, null));
+          return null;
+        }
     );
   }
 
